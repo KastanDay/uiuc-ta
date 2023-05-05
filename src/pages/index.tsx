@@ -54,7 +54,7 @@ const Home: NextPage = () => {
             </p>
             <div>
               {!user.isSignedIn && <SignInButton /> }
-              {!!user.isSignedIn && <p>You're signed in!</p> }
+              {!!user.isSignedIn && <p>You&apos;re signed in!</p> }
               
             </div>
             <SignIn path="/sign-in" routing="path" signUpUrl="/sign-up" />
