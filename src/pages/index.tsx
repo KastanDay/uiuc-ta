@@ -4,14 +4,6 @@ import Link from "next/link";
 // import { signIn, signOut, useSession } from "next-auth/react";
 import { SignIn, SignInButton, UserButton, useUser } from "@clerk/nextjs";
 
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "../../components/ui/accordion"
-
-
 import { api } from "~/utils/api";
 
 const Home: NextPage = () => {
@@ -61,13 +53,10 @@ const Home: NextPage = () => {
             <p className="text-2xl text-white">
               {hello.data ? hello.data.greeting : "Loading tRPC query..."}
             </p>
-            {/* <div> */}
-              {/* {!user.isSignedIn && <SignInButton /> } */}
-              {/* {!!user.isSignedIn && <p>You&apos;re signed in!</p> } */}
-              
-            {/* </div> */}
-            {/* <SignIn path="/sign-in" routing="path" signUpUrl="/sign-up" /> */}
-            {/* <AuthShowcase /> */}
+            <div>
+              {!user.isSignedIn && <SignInButton /> }
+              {!!user.isSignedIn && <p>You&apos;re signed in!</p> }
+            </div>
           </div>
         </div>
       </main>
