@@ -4,6 +4,12 @@ import Link from "next/link";
 // import { signIn, signOut, useSession } from "next-auth/react";
 import { SignIn, SignInButton, UserButton, useUser } from "@clerk/nextjs";
 
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "../../components/ui/accordion"
 
 
 import { api } from "~/utils/api";
@@ -48,16 +54,19 @@ const Home: NextPage = () => {
               </div>
             </Link>
           </div>
+          
+
+
           <div className="flex flex-col items-center gap-2">
             <p className="text-2xl text-white">
               {hello.data ? hello.data.greeting : "Loading tRPC query..."}
             </p>
-            <div>
-              {!user.isSignedIn && <SignInButton /> }
-              {!!user.isSignedIn && <p>You&apos;re signed in!</p> }
+            {/* <div> */}
+              {/* {!user.isSignedIn && <SignInButton /> } */}
+              {/* {!!user.isSignedIn && <p>You&apos;re signed in!</p> } */}
               
-            </div>
-            <SignIn path="/sign-in" routing="path" signUpUrl="/sign-up" />
+            {/* </div> */}
+            {/* <SignIn path="/sign-in" routing="path" signUpUrl="/sign-up" /> */}
             {/* <AuthShowcase /> */}
           </div>
         </div>
@@ -67,33 +76,3 @@ const Home: NextPage = () => {
 };
 
 export default Home;
-
-const AuthShowcase: React.FC = () => {
-  // const { data: sessionData } = useSession();
-
-  // const { data: secretMessage } = api.example.getSecretMessage.useQuery(
-  //   undefined, // no input
-  //   { enabled: sessionData?.user !== undefined },
-  // );
-
-  return (
-    <div className="flex flex-col items-center justify-center gap-4">
-    {/* //   <p className="text-center text-2xl text-white"> */}
-    {/* //     {sessionData && <span>Logged in as {sessionData.user?.name}</span>} */}
-    {/* //     {secretMessage && <span> - {secretMessage}</span>} */}
-    {/* //   </p> */}
-      <div>
-        <SignInButton /> 
-      </div> I
-      <SignIn path="/sign-in" routing="path" signUpUrl="/sign-up" />
-
-      
-    {/* //   <button */}
-    {/* //     className="rounded-full bg-white/10 px-10 py-3 font-semibold text-white no-underline transition hover:bg-white/20" */}
-    {/* //     onClick={sessionData ? () => void signOut() : () => void signIn()} */}
-    {/* //   > */}
-    {/* //     {sessionData ? "Sign out" : "Sign in"} */}
-    {/* //   </button> */}
-    </div>
-  );
-};
