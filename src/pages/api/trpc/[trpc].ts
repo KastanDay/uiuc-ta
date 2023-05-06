@@ -17,3 +17,9 @@ export default createNextApiHandler({
         }
       : undefined,
 });
+
+// Stole this from here. Can't get my Next builds working. 
+// https://github.com/vercel/next.js/issues/40457#issuecomment-1243910008
+export const config = {
+  runtime: "nodejs",
+}
